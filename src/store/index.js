@@ -1,32 +1,32 @@
 import { createStore } from 'vuex';
 
 const store = createStore({
-  state () {
+  state() {
     return {
-        cart: []
+      cart: []
     }
   },
   mutations: {
     addToCart(state, product) {
-        const existingProduct = state.cart.find((item) => item.id === product.id);
-        if (existingProduct) {
-          existingProduct.quantity++;
-        } else {
-          state.cart.push({ 
-            id: product.id,
-            name: product.name,
-            image: product.image,
-            price: product.price,
-            quantity: 1,
-          });
-        }
+      const existingProduct = state.cart.find((item) => item.id === product.id);
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        state.cart.push({
+          id: product.id,
+          name: product.name,
+          image: product.image,
+          price: product.price,
+          quantity: 1,
+        });
+      }
     },
     removeFromCart(state, product) {
-        const index = state.cart.findIndex((item) => item.id === product.id);
-        console.log(index);
-        if (index !== -1) {
-          state.cart.splice(index, 1);
-        }
+      const index = state.cart.findIndex((item) => item.id === product.id);
+      console.log(index);
+      if (index !== -1) {
+        state.cart.splice(index, 1);
+      }
     },
     updateQuantity(state, product) {
       const existingProduct = state.cart.find((item) => item.id === product.id);

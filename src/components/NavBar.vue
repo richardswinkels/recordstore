@@ -5,8 +5,8 @@
         <!-- Name -->
         <div class="flex flex-1 items-center">
           <button class="pr-4 md:hidden" @click="toggleMobileNav">
-            <svg v-if="!showMobileNav" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-10 h-10">
+            <svg v-if="!showMobileNav" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
             <svg v-else xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -48,16 +48,16 @@
       </div>
     </div>
     <div id="mobile-navlinks" class="md:hidden">
-        <!-- Hamburger Menu -->
-        <div v-if="showMobileNav">
-          <div class="flex flex-col justify-center">
-            <router-link to="/" class="px-5 py-2 text-sm font-semibold ">Home</router-link>
-            <router-link to="/store" class="px-5 py-2 text-sm font-semibold">Store</router-link>
-            <router-link to="/news" class="px-5 py-2 text-sm font-semibold">News</router-link>
-            <router-link to="/contact" class="px-5 py-2 text-sm font-semibold">Contact</router-link>
-          </div>
+      <!-- Hamburger Menu -->
+      <div v-if="showMobileNav">
+        <div class="flex flex-col justify-center">
+          <router-link to="/" class="px-5 py-2 text-sm font-semibold ">Home</router-link>
+          <router-link to="/store" class="px-5 py-2 text-sm font-semibold">Store</router-link>
+          <router-link to="/news" class="px-5 py-2 text-sm font-semibold">News</router-link>
+          <router-link to="/contact" class="px-5 py-2 text-sm font-semibold">Contact</router-link>
         </div>
       </div>
+    </div>
   </nav>
 </template>
 
@@ -78,5 +78,5 @@ export default {
 </script>
 
 <style>
-  .router-link-active {@apply text-gray-600}
+.router-link-active {@apply text-gray-600;}
 </style>

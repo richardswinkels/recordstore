@@ -2,7 +2,8 @@
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
     <h2 class="text-redpink font-bold text-3xl mb-4">Contact</h2>
     <p class="mb-4">Get in Touch with VinylVibes!
-    We're excited to connect with you! Whether you have a question, need assistance, VinylVibes is here to assist. Simply fill out the contact form below, and our friendly team will respond promptly.</p>
+      We're excited to connect with you! Whether you have a question, need assistance, VinylVibes is here to assist.
+      Simply fill out the contact form below, and our friendly team will respond promptly.</p>
     <form>
       <div class="form-row">
         <label for="name">Name:</label>
@@ -41,16 +42,16 @@ export default {
   methods: {
     sendContactMessage() {
       axios.post(`${baseUrl}contact`, this.contactMessage)
-      .then(
-        this.contactMessage = {
-          name: '',
-          email: '',
-          message: '',
-        }
-      )
-      .catch(error => {
-        console.error(error);
-      });
+        .then(
+          this.contactMessage = {
+            name: '',
+            email: '',
+            message: '',
+          }
+        )
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 }

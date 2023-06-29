@@ -18,10 +18,10 @@
       </div>
       <div class="w-full md:w-3/4">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-            <ProductCard v-for="product in products" :key="product.id" :product="product">
-            </ProductCard>
-            <div v-if="products.length === 0">
-              <p>No products available.</p>
+          <ProductCard v-for="product in products" :key="product.id" :product="product">
+          </ProductCard>
+          <div v-if="products.length === 0">
+            <p>No products available.</p>
           </div>
         </div>
         <PageNavigator :totalPages="totalPages" @changePage="changePage"></PageNavigator>

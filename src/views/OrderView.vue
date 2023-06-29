@@ -2,7 +2,8 @@
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
     <h2 class="text-redpink font-bold text-3xl mb-4">Place your order</h2>
     <p class="mb-4">
-      We are excited to fulfill your order and ensure a seamless delivery process. To expedite this process, we kindly request that you provide us with your shipping details by filling out the form below.
+      We are excited to fulfill your order and ensure a seamless delivery process. To expedite this process, we kindly
+      request that you provide us with your shipping details by filling out the form below.
     </p>
     <form>
       <div class="flex flex-col md:flex-row">
@@ -68,13 +69,13 @@ export default {
       };
 
       axios.post(`${baseUrl}orders`, orderData)
-      .then(() => {
-        this.shippingDetails = {};
-        this.clearCart();
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        .then(() => {
+          this.shippingDetails = {};
+          this.clearCart();
+        })
+        .catch(error => {
+          console.error(error);
+        });
     },
     clearCart() {
       this.$store.dispatch('clearCart');

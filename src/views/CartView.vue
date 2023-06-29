@@ -10,7 +10,8 @@
         <th class="text-left">Subtotal</th>
         <th></th>
       </tr>
-      <CartItem v-for="product in cart" :product="product" :key="product.id" @updateQuantity="updateQuantity" @deleteCartItem="deleteCartItem"></CartItem>
+      <CartItem v-for="product in cart" :product="product" :key="product.id" @updateQuantity="updateQuantity"
+        @deleteCartItem="deleteCartItem"></CartItem>
     </table>
     <div class="text-right">
       <router-link to="/order"><button class="button-red">Order</button></router-link>
