@@ -24,7 +24,7 @@
 </template>
 
 <script>
-const baseUrl = 'http://127.0.0.1/api/'
+const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
 
 export default {

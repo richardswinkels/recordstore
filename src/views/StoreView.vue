@@ -16,7 +16,7 @@
           <Slider :min="0" :max="500" v-model="filters.priceRange"></Slider>
         </div>
       </div>
-      <div>
+      <div class="w-full md:w-3/4">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
             <ProductCard v-for="product in products" :key="product.id" :product="product">
             </ProductCard>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-const baseUrl = 'http://127.0.0.1/api/'
+const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
 import Slider from '@vueform/slider';
 import ProductCard from '@/components/ProductCard.vue';

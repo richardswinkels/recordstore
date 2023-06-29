@@ -10,13 +10,13 @@
     </div>
     </div>
     <div v-else>
-      <p class="text-3xl font-bold">Product not found</p>
+      <p class="text-3xl font-bold">Article not found</p>
     </div>
   </div>
 </template>
 
 <script>
-const baseUrl = 'http://127.0.0.1/api/'
+const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
 
 export default {
@@ -36,6 +36,7 @@ export default {
       axios.get(`${baseUrl}news/${articleId}`)
         .then(response => {
           this.newsArticle = response.data;
+          document.title = `VinylVibes - ${this.newsArticle.title}`;
         })
         .catch(error => {
           console.error(error);

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-const baseUrl = 'http://127.0.0.1/api/'
+const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
 import { formatEuro } from '@/helpers';
 
@@ -51,6 +51,7 @@ export default {
       axios.get(`${baseUrl}products/${productId}`)
         .then(response => {
           this.product = response.data;
+          document.title = `VinylVibes - ${this.product.name}`;
         })
         .catch(error => {
           console.error(error);
@@ -59,7 +60,7 @@ export default {
     addToCart(product) {
       this.$store.dispatch('addToCart', product);
     }
-  }
+  },
 }
 </script>
 
