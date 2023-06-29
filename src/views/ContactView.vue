@@ -42,13 +42,13 @@ export default {
   methods: {
     sendContactMessage() {
       axios.post(`${baseUrl}contact`, this.contactMessage)
-        .then(
+        .then(() => {
           this.contactMessage = {
             name: '',
             email: '',
             message: '',
-          }
-        )
+          };
+        })
         .catch(error => {
           console.error(error);
         });
