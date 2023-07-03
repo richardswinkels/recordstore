@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/products/${product.id}`"
     class="flex flex-col bg-redpink rounded-lg shadow-lg overflow-hidden transition-all hover:scale-105">
-    <img :src="product.image || require('@/assets/placeholder.jpg')" alt="Product Image" class="w-full h-48 object-cover">
+    <img :src="product.image || require('@/assets/placeholder.jpg')" :alt="product.name" class="w-full h-48 object-cover">
     <div class="p-4 flex flex-grow flex-col justify-between">
       <div>
         <h3 class="text-medium text-white font-bold">{{ product.name }}</h3>
@@ -12,7 +12,7 @@
       </div>
       <div class="flex justify-between items-end mt-2">
         <span class="text-white font-bold">{{ formatEuro(product.price) }}</span>
-        <button @click.stop.prevent="addToCart(product)" class="transition-all transform hover:scale-120">
+        <button @click.stop.prevent="addToCart(product)" class="transition-all transform hover:scale-120" aria-label="Add to shopping cart">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" class="text-white"

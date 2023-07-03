@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <div class="w-1/3">
         <div class="aspect-w-4 aspect-h-3 mr-4">
-          <img :src="newsArticle.image || require('@/assets/placeholder.jpg')" alt="News article Image"
+          <img :src="newsArticle.image || require('@/assets/placeholder.jpg')" :alt="newsArticle.title"
             class="object-cover w-full h-full">
         </div>
       </div>

@@ -13,7 +13,7 @@
           </router-link>
         </div>
         <div class="w-full md:w-1/2 mb-4 md:mb-0">
-          <img :src="require('@/assets/1536281106.svg')" class="mx-auto">
+          <img :src="require('@/assets/1536281106.svg')" class="mx-auto" alt="Vinyl record" height="50">
         </div>
       </div>
     </div>

@@ -1,20 +1,24 @@
 <template>
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
     <h2 class="text-redpink font-bold text-3xl mb-4">Cart</h2>
-    <table class="w-full">
-      <tr>
-        <th></th>
-        <th class="text-left">Product</th>
-        <th class="text-left">Quantity</th>
-        <th class="text-left">Price</th>
-        <th class="text-left">Subtotal</th>
-        <th></th>
-      </tr>
-      <CartItem v-for="product in cart" :product="product" :key="product.id" @updateQuantity="updateQuantity"
-        @deleteCartItem="deleteCartItem"></CartItem>
-    </table>
-    <div class="text-right" v-if="cart.length > 0">
-      <router-link to="/order"><button class="button-red">Order</button></router-link>
+    <div v-if="this.cart.length > 0">
+      <table class="w-full">
+        <tr>
+          <th class="text-left" colspan="2">Product</th>
+          <th class="text-left">Quantity</th>
+          <th class="text-left">Price</th>
+          <th class="text-left">Subtotal</th>
+          <th></th>
+        </tr>
+        <CartItem v-for="product in cart" :product="product" :key="product.id" @updateQuantity="updateQuantity"
+          @deleteCartItem="deleteCartItem"></CartItem>
+      </table>
+      <div class="text-right">
+        <router-link to="/order"><button class="button-red">Order</button></router-link>
+      </div>
+    </div>
+    <div v-else>
+      <p class>Your cart is empty.</p>
     </div>
   </div>
 </template>

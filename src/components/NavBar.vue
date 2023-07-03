@@ -4,7 +4,7 @@
       <div class="flex justify-between h-16">
         <!-- Name -->
         <div class="flex flex-1 items-center">
-          <button class="pr-4 md:hidden" @click="toggleMobileNav">
+          <button class="pr-4 md:hidden" @click="toggleMobileNav" aria-label="Toggle mobile navigation">
             <svg v-if="!showMobileNav" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -30,7 +30,7 @@
         <!-- Cart Button -->
         <div class="flex flex-1 items-center justify-end">
           <router-link to="/cart">
-            <button>
+            <button aria-label="Go to shopping cart">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-8 h-8">
                 <path stroke-linecap="round" stroke-linejoin="round"
