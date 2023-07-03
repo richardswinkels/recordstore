@@ -9,7 +9,8 @@
     textarea {@apply border rounded-md;}
     label {@apply font-semibold;}
     .button-red {@apply bg-redpink text-white font-bold rounded-md shadow-md px-4 py-1;}
-    .form-row {@apply flex flex-col mb-2;}
+    .form-row {@apply flex flex-col mb-3;}
+    .error {@apply text-redpink font-semibold text-sm mt-1;}
 }
 
 :root {

@@ -12,6 +12,8 @@
     "@fontsource/lobster": "^5.0.3",
     "@vueform/multiselect": "^2.6.2",
     "@vueform/slider": "^2.1.7",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.3",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",

@@ -13,7 +13,7 @@
       <CartItem v-for="product in cart" :product="product" :key="product.id" @updateQuantity="updateQuantity"
         @deleteCartItem="deleteCartItem"></CartItem>
     </table>
-    <div class="text-right">
+    <div class="text-right" v-if="cart.length > 0">
       <router-link to="/order"><button class="button-red">Order</button></router-link>
     </div>
   </div>
