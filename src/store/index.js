@@ -15,7 +15,7 @@ const store = createStore({
         state.cart.push({
           id: product.id,
           name: product.name,
-          image: product.image,
+          thumb: product.thumb,
           price: product.price,
           quantity: 1,
         });

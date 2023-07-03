@@ -21,10 +21,10 @@
 
         <!-- Navlinks -->
         <div class="md:flex flex-1 items-center justify-center hidden">
-          <router-link to="/" class="px-3 py-2 text-sm font-semibold">Home</router-link>
-          <router-link to="/store" class="px-3 py-2 text-sm font-semibold">Store</router-link>
-          <router-link to="/news" class="px-3 py-2 text-sm font-semibold">News</router-link>
-          <router-link to="/contact" class="px-3 py-2 text-sm font-semibold">Contact</router-link>
+          <router-link to="/" class="px-3 py-2 font-semibold">Home</router-link>
+          <router-link to="/store" class="px-3 py-2 font-semibold">Store</router-link>
+          <router-link to="/news" class="px-3 py-2 font-semibold">News</router-link>
+          <router-link to="/contact" class="px-3 py-2 font-semibold">Contact</router-link>
         </div>
 
         <!-- Cart Button -->
@@ -40,21 +40,15 @@
           </router-link>
         </div>
       </div>
-      <div id="mobile-navlinks" class="md:hidden hidden">
-        <a href="#" class="block px-3 py-2 text-sm font-semibold">Home</a>
-        <a href="#" class="block px-3 py-2 text-sm font-semibold">Store</a>
-        <a href="#" class="block px-3 py-2 text-sm font-semibold">News</a>
-        <a href="#" class="block px-3 py-2 text-sm font-semibold">Contact</a>
-      </div>
     </div>
     <div id="mobile-navlinks" class="md:hidden">
       <!-- Hamburger Menu -->
       <div v-if="showMobileNav">
         <div class="flex flex-col justify-center">
-          <router-link to="/" class="px-5 py-2 text-sm font-semibold ">Home</router-link>
-          <router-link to="/store" class="px-5 py-2 text-sm font-semibold">Store</router-link>
-          <router-link to="/news" class="px-5 py-2 text-sm font-semibold">News</router-link>
-          <router-link to="/contact" class="px-5 py-2 text-sm font-semibold">Contact</router-link>
+          <router-link to="/" class="px-5 py-2 font-semibold ">Home</router-link>
+          <router-link to="/store" class="px-5 py-2 font-semibold">Store</router-link>
+          <router-link to="/news" class="px-5 py-2 font-semibold">News</router-link>
+          <router-link to="/contact" class="px-5 py-2 font-semibold">Contact</router-link>
         </div>
       </div>
     </div>

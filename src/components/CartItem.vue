@@ -1,13 +1,13 @@
 <template>
   <tr>
     <td class="w-1/6 pr-6 py-2">
-      <img :src="product.image" :alt="product.name"/>
+      <img :src="product.thumb" :alt="product.name" class="min-w-[100px]"/>
     </td>
-    <td class="w-2/6 pr-2">{{ product.name }}</td>
-    <td class="w-1/6 pr-10"><input type="number" :value="product.quantity"
+    <td class="w-2/6 pr-4">{{ product.name }}</td>
+    <td class="w-1/6 pr-2"><input type="number" class="w-20" :value="product.quantity"
         @change="updateProductQuantity($event.target.value)" min="1" max="999"></td>
-    <td class="w-1/6">{{ formatEuro(product.price) }}</td>
-    <td class="w-1/6">{{ formatEuro(subtotal) }}</td>
+    <td class="w-1/6 pr-2 whitespace-nowrap">{{ formatEuro(product.price) }}</td>
+    <td class="w-1/6 pr-2 whitespace-nowrap">{{ formatEuro(subtotal) }}</td>
     <td class="font-bold w-1/6"><button @click="deleteCartItem" aria-label="Delete item from cart">X</button></td>
   </tr>
 </template>

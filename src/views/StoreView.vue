@@ -8,11 +8,11 @@
           <Multiselect v-model="filters.genres" mode="tags" :options="genres" />
         </div>
         <div class="mb-6">
-          <span class="font-semibold">Categorie</span>
+          <span class="font-semibold">Category</span>
           <Multiselect v-model="filters.categories" mode="tags" :options="categories" />
         </div>
         <div>
-          <span class="font-semibold">Prijs</span>
+          <span class="font-semibold">Price</span>
           <Slider :min="0" :max="500" v-model="filters.priceRange"></Slider>
         </div>
       </div>
@@ -37,6 +37,8 @@ import Slider from '@vueform/slider';
 import ProductCard from '@/components/ProductCard.vue';
 import Multiselect from '@vueform/multiselect';
 import PageNavigator from '@/components/PageNavigator.vue';
+import '@vueform/multiselect/themes/default.css';
+import '@vueform/slider/themes/default.css';
 
 export default {
   name: 'StoreView',

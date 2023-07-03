@@ -6,11 +6,10 @@ import router from './router';
 import store from './store';
 import axios from 'axios';
 
-import '@vueform/multiselect/themes/default.css';
-import '@vueform/slider/themes/default.css';
 import '@fontsource-variable/raleway';
 import '@fontsource/lobster';
 import './styles/app.css';
+import './registerServiceWorker'
 
 const app = createApp(App);
 app.use(router);
