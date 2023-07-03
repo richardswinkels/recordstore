@@ -7,16 +7,21 @@
       <div class="w-full md:w-1/2 md:ml-10">
         <h2 class="text-redpink font-bold text-2xl mb-1 mt-2 md:mt-0">{{ product.name }}</h2>
         <p class="font-semibold text-xl mb-1">{{ formatEuro(product.price) }}</p>
-        <button class="button-red mb-4 transition-all hover:scale-105" @click.stop.prevent="addToCart(product)">
-          <div class="flex items-center">
-            <span class="text-white mr-2">Add to cart</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-8 h-8">
-              <path stroke-linecap="round" stroke-linejoin="round" class="text-white"
-                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
+        <div class="flex items-center mb-4">
+          <button class="button-red transition-all hover:scale-105 mr-4" @click.stop.prevent="addToCart(product)">
+            <div class="flex items-center">
+              <span class="text-white mr-2">Add to cart</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" class="text-white"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+              </svg>
+            </div>
+          </button>
+          <div v-if="showCartMessage" class="font-bold">
+            Added to cart
           </div>
-        </button>
+        </div>
         <p class="mb-4">
           {{ product.description }}
         </p>
@@ -38,6 +43,7 @@ export default {
   data() {
     return {
       product: null,
+      showCartMessage: false,
     };
   },
   mounted() {
@@ -59,6 +65,12 @@ export default {
     },
     addToCart(product) {
       this.$store.dispatch('addToCart', product);
+
+      this.showCartMessage = true;
+
+      setTimeout(() => {
+        this.showCartMessage = false;
+      }, 1000);
     }
   },
 }

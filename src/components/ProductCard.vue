@@ -7,9 +7,12 @@
         <h3 class="text-medium text-white font-bold">{{ product.name }}</h3>
         <p class="text-gray-200">{{ product.description }}</p>
       </div>
-      <div class="flex justify-between items-end mt-4">
+      <div v-if="showCartMessage" class="text-white text-right font-bold">
+        Added to cart
+      </div>
+      <div class="flex justify-between items-end mt-2">
         <span class="text-white font-bold">{{ formatEuro(product.price) }}</span>
-        <button @click.stop.prevent="addToCart(product)">
+        <button @click.stop.prevent="addToCart(product)" class="transition-all transform hover:scale-120">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" class="text-white"
@@ -26,6 +29,11 @@ import { formatEuro } from '@/helpers';
 
 export default {
   name: 'ProductCard',
+  data() {
+    return {
+      showCartMessage: false
+    }
+  },
   props: {
     product: {
       type: Object,
@@ -36,6 +44,12 @@ export default {
     formatEuro,
     addToCart(product) {
       this.$store.dispatch('addToCart', product);
+
+      this.showCartMessage = true;
+
+      setTimeout(() => {
+        this.showCartMessage = false;
+      }, 1000);
     }
   }
 }
