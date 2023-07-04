@@ -6,7 +6,7 @@
         <div class="w-full">
           <img :src="newsArticle.image || require('@/assets/placeholder.jpg')" alt="Article Image"
             class="float-left mr-4 mb-4 aspect-w-4 aspect-h-3" />
-          <p class="w-full">{{ newsArticle.content }}</p>
+          <div v-html="newsArticle.content" class="w-full content-container"></div>
         </div>
       </div>
     </div>
@@ -47,4 +47,7 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.content-container > p {@apply mb-6;}
+.content-container > h2 {@apply mb-2 font-bold text-lg;}
+</style>
