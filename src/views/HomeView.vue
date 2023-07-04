@@ -1,4 +1,41 @@
 <template>
+  <teleport to="head">
+    <component :is="'script'" type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "MusicStore",
+      "name": "VinylVibes",
+      "image": "https://recordstore.richardswinkels.nl/img/vinylvibes_interior.jpeg",
+      "@id": "https://recordstore.richardswinkels.nl/",
+      "url": "https://recordstore.richardswinkels.nl/",
+      "telephone": "0612345678",
+      "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sterrenlaan 10",
+      "addressLocality": "Eindhoven",
+      "postalCode": "5631KA",
+      "addressCountry": "NL"
+      },
+      "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.46630570000001,
+      "longitude": 5.4963976
+      },
+      "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+      }
+      }
+    </component>
+  </teleport>
   <div class="divide-y">
     <div>
       <div class="max-w-screen-lg mx-auto px-4 mb-8 flex flex-col-reverse md:flex-row items-center">

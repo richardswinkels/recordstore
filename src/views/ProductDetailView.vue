@@ -1,8 +1,14 @@
 <template>
+  <teleport to="head">
+    <component :is="'script'" type="application/ld+json" v-html="ldJson">
+
+    </component>
+  </teleport>
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
     <div v-if="product !== null" class="flex flex-col md:flex-row">
       <div class="w-full md:w-1/2">
-        <img :src="product.image || require('@/assets/placeholder.jpg')" alt="Product Image" class="w-full h-auto" rel="preload">
+        <img :src="product.image || require('@/assets/placeholder.jpg')" alt="Product Image" class="w-full h-auto"
+          rel="preload">
       </div>
       <div class="w-full md:w-1/2 md:ml-10">
         <h2 class="text-redpink font-bold text-2xl mb-1 mt-2 md:mt-0">{{ product.name }}</h2>
@@ -54,6 +60,27 @@ export default {
   },
   mounted() {
     this.fetchProduct();
+  },
+  computed: {
+    ldJson() {
+      let ldJson = null;
+
+      if (this.product) {
+        ldJson = JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": this.product.name,
+          "image": this.product.image,
+          "offers": {
+            "@type": "Offer",
+            "url": `https://recordstore.richardswinkels.nl/products/${this.product.id}`,
+            "priceCurrency": "EUR",
+            "price": this.product.price
+          }
+        });
+      }
+      return ldJson;
+    }
   },
   methods: {
     formatEuro,
