@@ -36,10 +36,16 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import { formatEuro } from '@/helpers';
 
 export default {
   name: 'ProductDetailView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - Product',
+    });
+  },
   data() {
     return {
       product: null,

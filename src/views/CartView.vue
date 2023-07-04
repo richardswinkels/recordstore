@@ -26,10 +26,16 @@
 </template>
 
 <script>
+import { useHead } from 'unhead';
 import CartItem from '@/components/CartItem.vue';
 
 export default {
   name: 'CartView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - Cart',
+    });
+  },
   components: {
     CartItem,
   },

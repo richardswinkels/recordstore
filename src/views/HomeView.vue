@@ -35,10 +35,22 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import ProductCard from '@/components/ProductCard.vue';
 
 export default {
   name: 'HomeView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - Home',
+      meta: [
+        {
+          name: 'description',
+          content: 'Discover the timeless charm of vinyl records at VinylVibes. Explore classic albums, new releases, and rare gems from every genre imaginable. Start your musical journey today!',
+        },
+      ],
+    });
+  },
   components: {
     ProductCard,
   },

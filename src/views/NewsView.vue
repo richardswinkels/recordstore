@@ -12,11 +12,23 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import NewsArticle from '@/components/NewsArticle.vue';
 import PageNavigator from '@/components/PageNavigator.vue';
 
 export default {
   name: 'NewsView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - News',
+      meta: [
+        {
+          name: 'description',
+          content: 'Stay up-to-date with the latest news and insights in the world of vinyl records at VinylVibes. Explore our blog for articles, reviews, and stories about classic albums, emerging artists, and the vinyl community.',
+        },
+      ],
+    });
+  },
   components: {
     NewsArticle,
     PageNavigator

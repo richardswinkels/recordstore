@@ -33,6 +33,7 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import Slider from '@vueform/slider';
 import ProductCard from '@/components/ProductCard.vue';
 import Multiselect from '@vueform/multiselect';
@@ -42,6 +43,17 @@ import '@vueform/slider/themes/default.css';
 
 export default {
   name: 'StoreView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - Store',
+      meta: [
+        {
+          name: 'description',
+          content: 'Explore a wide selection of vinyl records at VinylVibes. Discover classic albums, new releases, and rare gems from every genre imaginable. Immerse yourself in the rich sounds and nostalgic vibes of vinyl. Start your musical journey today!',
+        },
+      ],
+    });
+  },
   components: {
     PageNavigator,
     ProductCard,

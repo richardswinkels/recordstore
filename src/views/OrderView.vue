@@ -65,12 +65,16 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
 
 export default {
   name: 'OrderView',
   setup() {
+    useHead({
+      title: 'VinylVibes - Place order',
+    });
     return { v$: useVuelidate() }
   },
   mounted() {

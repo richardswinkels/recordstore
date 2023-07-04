@@ -19,9 +19,15 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 
 export default {
   name: 'NewsArticleView',
+  setup() {
+    useHead({
+      title: 'VinylVibes - News Article',
+    });
+  },  
   data() {
     return {
       newsArticle: null,

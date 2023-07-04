@@ -39,12 +39,22 @@
 <script>
 const baseUrl = 'https://recordstoreapi.richardswinkels.nl/api/'
 import axios from 'axios';
+import { useHead } from 'unhead';
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength } from '@vuelidate/validators'
 
 export default {
   name: 'ContactView',
   setup() {
+    useHead({
+      title: 'VinylVibes - Contact',
+      meta: [
+        {
+          name: 'description',
+          content: 'Get in touch with VinylVibes and connect with us. Reach out to our team for inquiries, support, or collaborations. We are here to assist you with any questions or feedback you may have.',
+        },
+      ],
+    });
     return { v$: useVuelidate() }
   },
   data() {
