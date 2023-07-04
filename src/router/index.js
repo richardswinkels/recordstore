@@ -38,7 +38,7 @@ const router = createRouter({
     },
     {
       name: 'NewsArticle',
-      path: '/news-article/:id',
+      path: '/news-articles/:id',
       component: NewsArticleView,
     },
     {
