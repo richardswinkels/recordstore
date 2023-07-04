@@ -10,6 +10,7 @@
         <h3 class="text-medium text-white font-bold">{{ product.name }}</h3>
         <p class="text-gray-200">{{ product.description }}</p>
       </div>
+      <div class="flex-grow"></div> <!-- Add a flexible space to push the button to the bottom -->
       <div v-if="showCartMessage" class="text-white text-right font-bold">
         Added to cart
       </div>
