@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /cart/
 Disallow: /order/
+Sitemap: https://recordstore.richardswinkels.nl/sitemap.xml 
