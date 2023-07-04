@@ -5,7 +5,13 @@
     </component>
   </teleport>
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
-    <div v-if="product !== null" class="flex flex-col md:flex-row">
+    <div v-if="isLoading">
+      <p class="text-3xl font-bold">Loading...</p>
+    </div>
+    <div v-else-if="error">
+      <p class="text-3xl font-bold">Product not found</p>
+    </div>
+    <div v-else-if="product !== null" class="flex flex-col md:flex-row">
       <div class="w-full md:w-1/2">
         <img :src="product.image || require('@/assets/placeholder.jpg')" alt="Product Image" class="w-full h-auto"
           rel="preload">
@@ -33,9 +39,6 @@
         </p>
       </div>
     </div>
-    <div v-else>
-      <p class="text-3xl font-bold">Product not found</p>
-    </div>
   </div>
 </template>
 
@@ -56,6 +59,8 @@ export default {
     return {
       product: null,
       showCartMessage: false,
+      isLoading: true,
+      error: false
     };
   },
   mounted() {
@@ -90,10 +95,21 @@ export default {
       axios.get(`${baseUrl}products/${productId}`)
         .then(response => {
           this.product = response.data;
-          document.title = `VinylVibes - ${this.product.name}`;
+          this.isLoading = false;
+          useHead({
+            title: `VinylVibes - ${this.product.name}`,
+            meta: [
+              {
+                name: 'description',
+                content: `Order '${this.product.name}' now on VinylVibes! Explore classic albums, new releases, and rare gems from every genre imaginable. Start your musical journey today!`,
+              },
+            ],
+          });
         })
         .catch(error => {
           console.error(error);
+          this.isLoading = false;
+          this.error = true;
         });
     },
     addToCart(product) {

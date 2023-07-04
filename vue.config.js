@@ -15,19 +15,7 @@ const paths = [
     changefreq: 'monthly'
   },
   {
-    path: '/products/:id',
-    lastmod: new Date().toISOString().slice(0, 10),
-    priority: 1.0,
-    changefreq: 'monthly'
-  },
-  {
     path: '/news',
-    lastmod: new Date().toISOString().slice(0, 10),
-    priority: 1.0,
-    changefreq: 'monthly'
-  },
-  {
-    path: '/news-article/:id',
     lastmod: new Date().toISOString().slice(0, 10),
     priority: 1.0,
     changefreq: 'monthly'

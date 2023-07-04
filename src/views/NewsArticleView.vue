@@ -5,7 +5,13 @@
     </component>
   </teleport>
   <div class="max-w-screen-lg mx-auto px-4 mt-6">
-    <div v-if="newsArticle !== null">
+    <div v-if="isLoading">
+      <p class="text-3xl font-bold">Loading...</p>
+    </div>
+    <div v-else-if="error">
+      <p class="text-3xl font-bold">Article not found</p>
+    </div>
+    <div v-else-if="newsArticle !== null">
       <h2 class="text-redpink font-bold text-3xl mb-4">{{ newsArticle.title }}</h2>
       <div class="flex flex-wrap">
         <div class="w-full">
@@ -14,9 +20,6 @@
           <div v-html="newsArticle.content" class="w-full content-container"></div>
         </div>
       </div>
-    </div>
-    <div v-else>
-      <p class="text-3xl font-bold">Article not found</p>
     </div>
   </div>
 </template>
@@ -36,6 +39,8 @@ export default {
   data() {
     return {
       newsArticle: null,
+      isLoading: true,
+      error: false
     };
   },
   mounted() {
@@ -80,10 +85,21 @@ export default {
       axios.get(`${baseUrl}news/${articleId}`)
         .then(response => {
           this.newsArticle = response.data;
-          document.title = `VinylVibes - ${this.newsArticle.title}`;
+          this.isLoading = false;
+          useHead({
+            title: `VinylVibes - ${this.newsArticle.title}`,
+            meta: [
+              {
+                name: 'description',
+                content: `Read '${this.newsArticle.title}' on VinylVibes! Explore classic albums, new releases, and rare gems from every genre imaginable. Start your musical journey today!`,
+              },
+            ]
+          });
         })
         .catch(error => {
           console.error(error);
+          this.isLoading = false;
+          this.error = true;
         });
     }
   }
@@ -97,4 +113,5 @@ export default {
 
 .content-container>h2 {
   @apply mb-2 font-bold text-lg;
-}</style>
+}
+</style>
