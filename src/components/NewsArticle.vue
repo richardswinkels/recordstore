@@ -9,7 +9,7 @@
         <h2 class="font-bold text-2xl mb-5">{{ newsArticle.title }}</h2>
         <p>{{ newsArticle.content }}</p>
         <div class="text-right">
-          <router-link class="font-bold underline" :to="`/news-article/${newsArticle.id}`">Read further</router-link>
+          <router-link class="font-bold underline" :to="`/news-articles/${newsArticle.id}`">Read further</router-link>
         </div>
       </div>
     </div>
